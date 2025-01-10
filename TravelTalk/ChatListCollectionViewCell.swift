@@ -57,14 +57,14 @@ class ChatListCollectionViewCell: UICollectionViewCell, ObjectSetup {
         
         let lastIndex = chatInfo[item].chatList.count - 1
         let userImage = chatInfo[item].chatroomImage[0]
-        print(userImage)
+        userImageView.image = UIImage(named: userImage)
         
         userNameLabel.text = chatInfo[item].chatroomName
 
         userLastChatLabel.text = chatInfo[item].chatList[lastIndex].message
         
 
-        userImageView.image = UIImage(named: userImage)
+ 
         
         let date = chatInfo[item].chatList[lastIndex].date
         if let date = formatStringToDate(stringDate: date, inputFormat: "yyyy-MM-dd HH:mm", outputFormat: "yy.MM.dd") {
