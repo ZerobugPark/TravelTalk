@@ -34,6 +34,9 @@ class ViewController: UIViewController {
         configureCollectionView()
         configureChatCollectionViewLayout()
         
+        let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "custom.chevron.backward"), style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
     }
     
     private func setup() {
@@ -53,6 +56,8 @@ class ViewController: UIViewController {
         chatCollectionView.register(xib, forCellWithReuseIdentifier: MultiChatListCollectionViewCell.identifier)
     }
     
+
+    
     private func configureChatCollectionViewLayout() {
         
         let layout = UICollectionViewFlowLayout()
@@ -67,7 +72,37 @@ class ViewController: UIViewController {
         
         chatCollectionView.collectionViewLayout = layout
         
+    }
+    
+    private func searchChatRoom(charArray: [String]) {
         
+        let consonant = [
+            "ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ", "ㅆ",
+            "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"
+        ]
+
+        let vowels = [
+            "ㅏ", "ㅐ", "ㅑ", "ㅒ", "ㅓ", "ㅔ", "ㅕ", "ㅖ", "ㅗ", "ㅘ", "ㅙ", "ㅚ",
+            "ㅛ", "ㅜ", "ㅝ", "ㅞ", "ㅟ", "ㅠ", "ㅡ", "ㅢ", "ㅣ"
+        ]
+        
+        
+        if !charArray.isEmpty, consonant.contains(charArray[0]) || vowels.contains(charArray[0]) {
+            travelTalk = mockChatList.filter { $0.chatroomName.uppercased().contains("도") }
+            chatCollectionView.reloadData()
+            
+            return
+        }
+        
+        let str = charArray.joined().uppercased()
+        
+    
+        if str.isEmpty {
+            travelTalk = mockChatList
+        } else {
+            travelTalk = mockChatList.filter { $0.chatroomName.uppercased().contains(str) }
+        }
+        chatCollectionView.reloadData()
         
     }
 
@@ -108,41 +143,23 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource {
             
             return cell
         }
-
+    
             
     }
     
-    private func searchChatRoom(charArray: [String]) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
         
-        let consonant = [
-            "ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ", "ㅆ",
-            "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"
-        ]
-
-        let vowels = [
-            "ㅏ", "ㅐ", "ㅑ", "ㅒ", "ㅓ", "ㅔ", "ㅕ", "ㅖ", "ㅗ", "ㅘ", "ㅙ", "ㅚ",
-            "ㅛ", "ㅜ", "ㅝ", "ㅞ", "ㅟ", "ㅠ", "ㅡ", "ㅢ", "ㅣ"
-        ]
+        let sb = UIStoryboard(name: "Main", bundle: nil)
         
+        let vc = sb.instantiateViewController(identifier: ChatViewController.identifier) as! ChatViewController
         
-        if !charArray.isEmpty, consonant.contains(charArray[0]) || vowels.contains(charArray[0]) {
-            travelTalk = mockChatList.filter { $0.chatroomName.uppercased().contains("도") }
-            chatCollectionView.reloadData()
-            
-            return
-        }
+        vc.navigationTitle = travelTalk[indexPath.item].chatroomName
+        vc.chat = travelTalk[indexPath.item].chatList
         
-        let str = charArray.joined().uppercased()
-        
-    
-        if str.isEmpty {
-            travelTalk = mockChatList
-        } else {
-            travelTalk = mockChatList.filter { $0.chatroomName.uppercased().contains(str) }
-        }
-        chatCollectionView.reloadData()
-        
+        navigationController?.pushViewController(vc, animated: true)
     }
+   
     
     
 }
