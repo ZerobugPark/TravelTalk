@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     var travelTalk = mockChatList
     var charArray: [String] = []
     
+    
     @IBOutlet var chatCollectionView: UICollectionView!
     
     @IBOutlet var searchBar: UISearchBar!
@@ -110,14 +111,29 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource {
     
     private func searchChatRoom(charArray: [String]) {
         
+        let consonant = [
+            "ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ", "ㅆ",
+            "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"
+        ]
+
+        let vowels = [
+            "ㅏ", "ㅐ", "ㅑ", "ㅒ", "ㅓ", "ㅔ", "ㅕ", "ㅖ", "ㅗ", "ㅘ", "ㅙ", "ㅚ",
+            "ㅛ", "ㅜ", "ㅝ", "ㅞ", "ㅟ", "ㅠ", "ㅡ", "ㅢ", "ㅣ"
+        ]
+        
+        
+        if !charArray.isEmpty, consonant.contains(charArray[0]) || vowels.contains(charArray[0]) {
+            travelTalk = mockChatList.filter { $0.chatroomName.uppercased().contains("도") }
+            chatCollectionView.reloadData()
+            
+            return
+        }
+        
         let str = charArray.joined().uppercased()
         
-        
-        //let a = mockChatList.filter { $0.chatroomName.contains(str) }
-        //print(str)
+    
         if str.isEmpty {
             travelTalk = mockChatList
-            print("here")
         } else {
             travelTalk = mockChatList.filter { $0.chatroomName.uppercased().contains(str) }
         }
@@ -137,7 +153,6 @@ extension ViewController: UISearchBarDelegate {
   
         if !text.isEmpty {
             charArray.append(text)
-            print(text)
         } else {
             if !charArray.isEmpty {
                 charArray.removeLast()
