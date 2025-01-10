@@ -77,6 +77,52 @@
             </objects>
             <point key="canvasLocation" x="1054.1984732824426" y="-34.507042253521128"/>
         </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="mRw-oK-bXk">
+            <objects>
+                <viewController storyboardIdentifier="ChatViewController" id="cht-fA-LeU" customClass="ChatViewController" customModule="TravelTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7T9-GP-bHh">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="svf-mz-JRf">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wzU-QZ-kJp">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wzU-QZ-kJp" id="R9l-et-PJf">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="48" id="1FS-kW-f7M">
+                                        <rect key="frame" x="0.0" y="94.666667938232422" width="393" height="48"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1FS-kW-f7M" id="H0a-ce-2PO">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="48"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="h0m-8X-a84"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="h0m-8X-a84" firstAttribute="bottom" secondItem="svf-mz-JRf" secondAttribute="bottom" id="3Ga-tx-Yb0"/>
+                            <constraint firstItem="svf-mz-JRf" firstAttribute="leading" secondItem="h0m-8X-a84" secondAttribute="leading" id="AhN-mv-Yiq"/>
+                            <constraint firstItem="h0m-8X-a84" firstAttribute="trailing" secondItem="svf-mz-JRf" secondAttribute="trailing" id="D1e-gr-Dq5"/>
+                            <constraint firstItem="svf-mz-JRf" firstAttribute="top" secondItem="h0m-8X-a84" secondAttribute="top" id="fP1-PG-kJj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="plG-0y-nKy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PVT-D6-ae2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2178" y="333"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="onV-mu-MK0">
             <objects>
