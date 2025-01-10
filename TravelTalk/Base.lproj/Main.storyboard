@@ -32,7 +32,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EVW-iK-IHR">
-                                <rect key="frame" x="0.0" y="192" width="393" height="626"/>
+                                <rect key="frame" x="0.0" y="176" width="393" height="642"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JiF-SP-iF4">
                                     <size key="itemSize" width="128" height="128"/>
@@ -59,7 +59,7 @@
                             <constraint firstItem="3pa-hx-SyI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8x8-yL-f45"/>
                             <constraint firstItem="EVW-iK-IHR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ADe-jP-DE8"/>
                             <constraint firstItem="7HY-bc-hnb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EHe-er-GBb"/>
-                            <constraint firstItem="EVW-iK-IHR" firstAttribute="top" secondItem="7HY-bc-hnb" secondAttribute="bottom" constant="16" id="LYz-ON-duZ"/>
+                            <constraint firstItem="EVW-iK-IHR" firstAttribute="top" secondItem="7HY-bc-hnb" secondAttribute="bottom" id="LYz-ON-duZ"/>
                             <constraint firstItem="7HY-bc-hnb" firstAttribute="top" secondItem="3pa-hx-SyI" secondAttribute="bottom" constant="16" id="Zd8-0z-p49"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EVW-iK-IHR" secondAttribute="bottom" id="aaB-vt-LQl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7HY-bc-hnb" secondAttribute="trailing" id="g0y-IA-pyk"/>
@@ -68,6 +68,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="TRAVEL TALK" id="XPC-xw-2pH"/>
+                    <connections>
+                        <outlet property="chatCollectionView" destination="EVW-iK-IHR" id="87N-0n-s72"/>
+                        <outlet property="searchBar" destination="3pa-hx-SyI" id="REP-iK-i5g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
