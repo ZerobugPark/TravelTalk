@@ -18,7 +18,7 @@ class MultiChatListCollectionViewCell: UICollectionViewCell, ObjectSetup {
     
     @IBOutlet var userNameLabel: UILabel!
     @IBOutlet var userLastChatLabel: UILabel!
-    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
     
     static let identifier = "MultiChatListCollectionViewCell"
     
@@ -51,16 +51,16 @@ class MultiChatListCollectionViewCell: UICollectionViewCell, ObjectSetup {
         userLastChatLabel.font = .systemFont(ofSize: 14)
         userLastChatLabel.textColor = .lightGray
         
-        timeLabel.font = .systemFont(ofSize: 14)
-        timeLabel.textColor = .lightGray
-        timeLabel.textAlignment = .right
+        dateLabel.font = .systemFont(ofSize: 14)
+        dateLabel.textColor = .lightGray
+        dateLabel.textAlignment = .right
         
     }
     
     
     func configMultiData(chatInfo: [ChatRoom], item: Int) {
         
-        let lastMessageIndex = chatInfo[item].chatList.count - 1
+        let lastIndex = chatInfo[item].chatList.count - 1
         
         for i in 0..<chatInfo[item].chatroomImage.count {
             let userImage = chatInfo[item].chatroomImage[i]
@@ -71,11 +71,18 @@ class MultiChatListCollectionViewCell: UICollectionViewCell, ObjectSetup {
 
         userNameLabel.text = chatInfo[item].chatroomName
         
-        userLastChatLabel.text = chatInfo[item].chatList[lastMessageIndex].message
+        userLastChatLabel.text = chatInfo[item].chatList[lastIndex].message
         
     
-        
-        
+        let date = chatInfo[item].chatList[lastIndex].date
+        if let date = formatStringToDate(stringDate: date, inputFormat: "yyyy-MM-dd HH:mm", outputFormat: "yy.MM.dd") {
+            dateLabel.text = date
+        } else {
+            dateLabel.text = "날짜 변환 오류"
+        }
         
     }
+        //date: "2025-01-12 23:42",
+    
+    
 }

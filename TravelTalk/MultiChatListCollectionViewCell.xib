@@ -106,11 +106,11 @@
             </constraints>
             <size key="customSize" width="334" height="152"/>
             <connections>
+                <outlet property="dateLabel" destination="NvD-dS-VyP" id="ooR-TI-sqL"/>
                 <outlet property="firstUserImageView" destination="jOi-tk-5pS" id="i9k-at-gnb"/>
                 <outlet property="fourthUserImageView" destination="thg-Eg-t4F" id="YCK-8a-UJa"/>
                 <outlet property="secondUserImageView" destination="Y43-v2-ti4" id="fI1-Zb-KGR"/>
                 <outlet property="thirdUserImageView" destination="hbU-MF-UlQ" id="qvS-oS-LKc"/>
-                <outlet property="timeLabel" destination="NvD-dS-VyP" id="Gkm-a0-jX8"/>
                 <outlet property="userLastChatLabel" destination="nJx-qS-d9A" id="Rj9-cM-lgO"/>
                 <outlet property="userNameLabel" destination="fUM-Bp-oqi" id="L0m-0Z-fRl"/>
             </connections>

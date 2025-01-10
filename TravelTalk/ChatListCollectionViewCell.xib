@@ -72,7 +72,7 @@
             </constraints>
             <size key="customSize" width="498" height="219"/>
             <connections>
-                <outlet property="timeLabel" destination="1gb-kR-qqo" id="AyG-gI-sD4"/>
+                <outlet property="dateLabel" destination="1gb-kR-qqo" id="AyG-gI-sD4"/>
                 <outlet property="userImageView" destination="DZs-C0-Jzq" id="PlH-Y2-6fA"/>
                 <outlet property="userLastChatLabel" destination="uJu-9f-bUF" id="LGp-Zs-mVn"/>
                 <outlet property="userNameLabel" destination="27v-am-nmi" id="NnS-Sr-b4J"/>

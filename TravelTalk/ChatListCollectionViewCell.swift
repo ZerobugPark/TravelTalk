@@ -14,7 +14,7 @@ class ChatListCollectionViewCell: UICollectionViewCell, ObjectSetup {
     @IBOutlet var userImageView: UIImageView!
     @IBOutlet var userNameLabel: UILabel!
     @IBOutlet var userLastChatLabel: UILabel!
-    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
     
     static let identifier = "ChatListCollectionViewCell"
     
@@ -46,27 +46,32 @@ class ChatListCollectionViewCell: UICollectionViewCell, ObjectSetup {
         userLastChatLabel.font = .systemFont(ofSize: 14)
         userLastChatLabel.textColor = .lightGray
         
-        timeLabel.font = .systemFont(ofSize: 14)
-        timeLabel.textColor = .lightGray
-        timeLabel.textAlignment = .right
+        dateLabel.font = .systemFont(ofSize: 14)
+        dateLabel.textColor = .lightGray
+        dateLabel.textAlignment = .right
         
     }
     
     
     func configData(chatInfo: [ChatRoom], item: Int) {
         
-        let lastMessageIndex = chatInfo[item].chatList.count - 1
+        let lastIndex = chatInfo[item].chatList.count - 1
         let userImage = chatInfo[item].chatroomImage[0]
         print(userImage)
         
         userNameLabel.text = chatInfo[item].chatroomName
 
-        userLastChatLabel.text = chatInfo[item].chatList[lastMessageIndex].message
+        userLastChatLabel.text = chatInfo[item].chatList[lastIndex].message
         
-        
-        
+
         userImageView.image = UIImage(named: userImage)
         
+        let date = chatInfo[item].chatList[lastIndex].date
+        if let date = formatStringToDate(stringDate: date, inputFormat: "yyyy-MM-dd HH:mm", outputFormat: "yy.MM.dd") {
+            dateLabel.text = date
+        } else {
+            dateLabel.text = "날짜 변환 오류"
+        }
         
     }
     
