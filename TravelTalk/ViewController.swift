@@ -13,13 +13,13 @@ import UIKit
 class ViewController: UIViewController {
 
     
+    @IBOutlet var chatCollectionView: UICollectionView!
+    @IBOutlet var searchBar: UISearchBar!
+    
+    
     var travelTalk = mockChatList
     var charArray: [String] = []
     
-    
-    @IBOutlet var chatCollectionView: UICollectionView!
-    
-    @IBOutlet var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -148,14 +148,13 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+      //  print(indexPath)
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
         
         let vc = sb.instantiateViewController(identifier: ChatViewController.identifier) as! ChatViewController
         
-        vc.navigationTitle = travelTalk[indexPath.item].chatroomName
-        vc.chat = travelTalk[indexPath.item].chatList
+        vc.chat = travelTalk[indexPath.item]
         
         navigationController?.pushViewController(vc, animated: true)
     }
