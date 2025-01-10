@@ -16,7 +16,8 @@ func formatStringToDate(stringDate: String, inputFormat: String, outputFormat: S
         print("변환 오류")
         return nil
     }
-
+    dateFormatter.locale = Locale(identifier: "ko_KR")
+    
     dateFormatter.dateFormat = outputFormat //"yy.MM.dd"
     return dateFormatter.string(from: date)
     
