@@ -13,6 +13,7 @@ class ChatViewController: UIViewController {
     
     
     
+    @IBOutlet var inputChat: UITextField!
     @IBOutlet var tableView: UITableView!
     
     static let identifier = "ChatViewController"
@@ -28,11 +29,21 @@ class ChatViewController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
+        tableView.keyboardDismissMode = .onDrag
+        
         self.navigationItem.title = chat?.chatroomName ?? "타이틀 없음"
         
+        
         configureCollectionView()
+        configChatTextField()
     }
     
+    
+    private func configChatTextField() {
+        
+        let text = "메시지를 입력해주세요"
+        inputChat.placeholder = text
+    }
     
     private func configureCollectionView() {
         
