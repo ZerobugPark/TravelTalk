@@ -42,6 +42,7 @@ class UserTableViewCell: UITableViewCell, ObjectSetup {
         userChatLabel.font = .systemFont(ofSize: 12)
         userChatLabel.textColor = .black
         userChatLabel.numberOfLines = 0
+        userChatLabel.backgroundColor = .clear
         
         timeLabel.font = .systemFont(ofSize: 10)
         timeLabel.textColor = .lightGray
@@ -51,10 +52,10 @@ class UserTableViewCell: UITableViewCell, ObjectSetup {
     
     func imageViewConfig() {
         
-        bgView.backgroundColor = .white
+        bgView.backgroundColor = .systemGray5
         bgView.layer.cornerRadius = 10
         bgView.layer.borderWidth = 1
-        bgView.layer.borderColor = UIColor.lightGray.cgColor
+        bgView.layer.borderColor = UIColor.gray.cgColor
         
     }
     
@@ -65,8 +66,7 @@ class UserTableViewCell: UITableViewCell, ObjectSetup {
             return
         }
         
-    
-    
+
         userChatLabel.text = chat.chatList[row].message
         
         
