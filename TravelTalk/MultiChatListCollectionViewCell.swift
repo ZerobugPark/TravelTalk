@@ -18,7 +18,7 @@ class MultiChatListCollectionViewCell: UICollectionViewCell, ObjectSetup {
     
     @IBOutlet var userNameLabel: UILabel!
     @IBOutlet var userLastChatLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var timeLabel: UILabel!
     
     static let identifier = "MultiChatListCollectionViewCell"
     
@@ -51,9 +51,9 @@ class MultiChatListCollectionViewCell: UICollectionViewCell, ObjectSetup {
         userLastChatLabel.font = .systemFont(ofSize: 14)
         userLastChatLabel.textColor = .lightGray
         
-        dateLabel.font = .systemFont(ofSize: 14)
-        dateLabel.textColor = .lightGray
-        dateLabel.textAlignment = .right
+        timeLabel.font = .systemFont(ofSize: 14)
+        timeLabel.textColor = .lightGray
+        timeLabel.textAlignment = .right
         
     }
     
@@ -76,9 +76,9 @@ class MultiChatListCollectionViewCell: UICollectionViewCell, ObjectSetup {
     
         let date = chatInfo[item].chatList[lastIndex].date
         if let date = formatStringToDate(stringDate: date, inputFormat: "yyyy-MM-dd HH:mm", outputFormat: "yy.MM.dd") {
-            dateLabel.text = date
+            timeLabel.text = date
         } else {
-            dateLabel.text = "날짜 변환 오류"
+            timeLabel.text = "날짜 변환 오류"
         }
         
     }
